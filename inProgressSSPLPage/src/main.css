@@ -31,64 +31,6 @@ Version      : 1.0
   background-image: url("./assets/bg.jpg");
 }
 
-header {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  transform: translateX(-50%);
-  padding-top: 30px;
-}
-
-header nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-header .logo {
-  width: 165px;
-}
-
-header .logo svg {
-  max-width: 100%;
-  height: auto;
-  -o-object-fit: cover;
-  object-fit: cover;
-}
-
-header .social-icon a {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  border: 1px solid #fff;
-  color: #fff;
-  font-size: 20px;
-  text-decoration: none;
-  -webkit-transition: 0.3s all linear;
-  transition: 0.3s all linear;
-}
-
-header .social-icon a:hover {
-  border-color: #ff3251;
-  background-color: #ff3251;
-}
-
 .has-line {
   padding-left: 100px;
   position: relative;
@@ -144,9 +86,6 @@ header .social-icon a:hover {
     background-image: none !important;
     display: block !important;
   }
-  header {
-    padding-top: 15px !important;
-  }
   .form-group input {
     width: 100%;
     height: 50px;
@@ -166,15 +105,6 @@ header .social-icon a:hover {
   }
   h1 {
     text-align: center;
-  }
-  .social-icon a {
-    height: 35px !important;
-    width: 35px !important;
-    color: #001141 !important;
-    border-color: #001141 !important;
-  }
-  header .logo {
-    width: 140px;
   }
   .newsletter-area {
     padding-top: 150px;
@@ -187,9 +117,6 @@ header .social-icon a:hover {
     background-image: none !important;
     display: block !important;
   }
-  header {
-    padding-top: 15px !important;
-  }
   .form-group input {
     width: 100%;
     height: 50px;
@@ -209,15 +136,6 @@ header .social-icon a:hover {
   }
   h1 {
     text-align: center;
-  }
-  .social-icon a {
-    height: 35px !important;
-    width: 35px !important;
-    color: #001141 !important;
-    border-color: #001141 !important;
-  }
-  header .logo {
-    width: 150px;
   }
   .newsletter-area {
     padding-top: 150px;
@@ -230,9 +148,6 @@ header .social-icon a:hover {
     background-image: none !important;
     display: block !important;
   }
-  header {
-    padding-top: 15px !important;
-  }
   .form-group input {
     width: 100%;
     height: 50px;
@@ -253,15 +168,6 @@ header .social-icon a:hover {
   h1 {
     text-align: center;
   }
-  .social-icon a {
-    height: 35px !important;
-    width: 35px !important;
-    color: #001141 !important;
-    border-color: #001141 !important;
-  }
-  header .logo {
-    width: 160px;
-  }
   .newsletter-area {
     padding-top: 150px;
     margin-bottom: 50px;
@@ -269,12 +175,6 @@ header .social-icon a:hover {
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-  .social-icon a {
-    color: #001141 !important;
-    border-color: #001141 !important;
-    background-color: #fff;
-  }
-
   .form-group {
     width: 65%;
     height: 80px;
@@ -371,13 +271,6 @@ h5 {
 
 html {
   scroll-behavior: smooth;
-}
-
-img {
-  border: 0;
-  outline: 0;
-  max-width: 100%;
-  vertical-align: middle;
 }
 
 body {
