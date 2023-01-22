@@ -19,8 +19,9 @@ header nav {
   justify-content: space-between;
 }
 
-header a img.logo {
+header .logo a img {
   width: 165px;
+  height: auto;
 }
 
 header .logo svg {
