@@ -11,14 +11,14 @@ export const Newsletter = () => {
   const submitHandler = (event: any) => {
     const formElement = document.querySelector("form");
     event.preventDefault();
-    const data = new URLSearchParams();
-    data.append("email", enteredEmail);
-
+    const data = new FormData(formElement!);
+    //data.append("email", enteredEmail);
     fetch(
-      "https://script.google.com/macros/s/AKfycbxaoYW5UF76L0j_OUoym6nOpwq9j94hpxI9MVl5EZvAjWH0YxNnstlyga2zy3jb4fIe/exec",
+      "https://script.google.com/macros/s/AKfycbwYkdSG-LJq-T6uL66ymK6dB1G27Pljx08lRvnEsh6cSp6oUmjdqJHVg4aYuflIHg2_/exec",
       {
         method: "POST",
         body: data,
+        //body: data.get("email"),
         headers: {
           "Content-Type": "text/plain;charset=UTF-8",
         },
@@ -39,22 +39,17 @@ export const Newsletter = () => {
           <div className="col-lg-8">
             <h5 className="has-line">Strona w przygotowaniu</h5>
             <h1>Powiadomimy Cię, kiedy będzie gotowa</h1>
-            <form
-              onSubmit={(e) => {
-                submitHandler(e);
-              }}
-            >
+            <form onSubmit={submitHandler}>
               <div className="form-group">
                 <input
                   type="email"
                   name="email"
+                  value={enteredEmail}
                   placeholder="Podaj adres e-mail"
                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                   onChange={emailChangeHandler}
                 />
-                <button type="submit" onClick={() => console.log(enteredEmail)}>
-                  Otrzymaj powiadomienie
-                </button>
+                <button type="submit">Otrzymaj powiadomienie</button>
               </div>
             </form>
           </div>
