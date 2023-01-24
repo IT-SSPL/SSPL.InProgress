@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import "./Newsletter.css";
@@ -52,10 +51,18 @@ export const Newsletter = () => {
                   {...register("email", { required: true })}
                   placeholder="Podaj adres e-mail"
                 />
-                <button type="submit">
+                <button
+                  type="submit"
+                  className={
+                    isSubmitSuccessful && !email ? "successfully-submitted" : ""
+                  }
+                >
                   {!email && isSubmitSuccessful && <>Sukces</>}
                   {isSubmitting && <>Ładowanie...</>}
                   {!isSubmitting && email && <>Otrzymaj powiadomienie</>}
+                  {!isSubmitting && !email && !isSubmitSuccessful && (
+                    <>Otrzymaj powiadomienie</>
+                  )}
                 </button>
               </div>
             </form>

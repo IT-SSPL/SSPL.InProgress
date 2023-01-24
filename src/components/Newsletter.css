@@ -61,6 +61,17 @@ Version      : 1.0
   position: absolute;
   top: 0;
   right: 145px;
+  transition: all 0.5s ease-in-out;
+}
+
+.form-group button.successfully-submitted {
+  background-color: #2ab600;
+  border-color: #2ab600;
+}
+
+.form-group button.successfully-submitted::after {
+  content: "✔";
+  margin-left: 5px;
 }
 
 @media (max-width: 420px) {
