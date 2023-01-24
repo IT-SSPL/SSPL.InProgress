@@ -1,32 +1,42 @@
-import { useState } from "react";
+import { useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
 import "./Newsletter.css";
 
+const schema = z.object({
+  email: z.string().email(),
+});
+
 export const Newsletter = () => {
-  const [enteredEmail, setEnteredEmail] = useState("");
+  const {
+    register,
+    reset,
+    watch,
+    handleSubmit,
+    formState: { isSubmitSuccessful, isSubmitting },
+  } = useForm({
+    defaultValues: {
+      email: "",
+    },
+  });
 
-  const emailChangeHandler = (event: any) => {
-    setEnteredEmail(event.target.value);
-  };
+  const submitHandler = handleSubmit(async ({ email }) => {
+    const body = new FormData();
+    body.append("email", email);
+    body.append("domain", window.location.href);
 
-  const submitHandler = (event: any) => {
-    const formElement = document.querySelector("form");
-    event.preventDefault();
-    const data = new FormData(formElement!);
-    fetch(
-      "https://script.google.com/macros/s/AKfycbwYkdSG-LJq-T6uL66ymK6dB1G27Pljx08lRvnEsh6cSp6oUmjdqJHVg4aYuflIHg2_/exec",
+    await fetch(
+      "https://script.google.com/macros/s/AKfycby8JNA7_aHm3ZgvmNQtDfae-DZX8D-Oa2C0ENeXojBP8jpVZ1ewMOPJBaUVnWkU56NY/exec",
       {
         method: "POST",
-        body: data,
+        body,
       }
-    )
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    setEnteredEmail("");
-  };
+    );
+
+    reset();
+  });
+
+  const email = watch("email");
 
   return (
     <section className="newsletter-area">
@@ -35,17 +45,18 @@ export const Newsletter = () => {
           <div className="col-lg-8">
             <h5 className="has-line">Strona w przygotowaniu</h5>
             <h1>Powiadomimy Cię, kiedy będzie gotowa</h1>
-            <form onSubmit={submitHandler}>
+            <form method="POST" onSubmit={submitHandler}>
               <div className="form-group">
                 <input
                   type="email"
-                  name="email"
-                  value={enteredEmail}
+                  {...register("email", { required: true })}
                   placeholder="Podaj adres e-mail"
-                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-                  onChange={emailChangeHandler}
                 />
-                <button type="submit">Otrzymaj powiadomienie</button>
+                <button type="submit">
+                  {!email && isSubmitSuccessful && <>Sukces</>}
+                  {isSubmitting && <>Ładowanie...</>}
+                  {!isSubmitting && email && <>Otrzymaj powiadomienie</>}
+                </button>
               </div>
             </form>
           </div>
