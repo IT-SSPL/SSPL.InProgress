@@ -12,16 +12,11 @@ export const Newsletter = () => {
     const formElement = document.querySelector("form");
     event.preventDefault();
     const data = new FormData(formElement!);
-    //data.append("email", enteredEmail);
     fetch(
       "https://script.google.com/macros/s/AKfycbwYkdSG-LJq-T6uL66ymK6dB1G27Pljx08lRvnEsh6cSp6oUmjdqJHVg4aYuflIHg2_/exec",
       {
         method: "POST",
         body: data,
-        //body: data.get("email"),
-        headers: {
-          "Content-Type": "text/plain;charset=UTF-8",
-        },
       }
     )
       .then((response) => {
