@@ -25,6 +25,7 @@ export const Newsletter = () => {
       .catch((error) => {
         console.log(error);
       });
+    setEnteredEmail("");
   };
 
   return (
