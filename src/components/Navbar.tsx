@@ -1,10 +1,11 @@
 import { Facebook, Instagram, Twitter } from "./SocialIcons";
 import "./Navbar.css";
+import logo from "/src/assets/logo.png";
 
 const Logo = () => {
   return (
     <a href="https://samorzad.p.lodz.pl/">
-      <img src="./src/assets/logo.png" alt="logo" />
+      <img src={logo} alt="logo" />
     </a>
   );
 };
