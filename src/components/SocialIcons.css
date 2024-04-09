@@ -15,8 +15,6 @@ a.social-logo {
   color: #fff !important;
   font-size: 20px;
   text-decoration: none;
-  -webkit-transition: 0.3s all linear;
-  transition: 0.3s all linear;
 }
 
 a.social-logo:hover {
