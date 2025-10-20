@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+/* Load Poppins font */
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./fonts/Poppins-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("./fonts/Poppins-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("./fonts/Poppins-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("./fonts/Poppins-Bold.ttf") format("truetype");
+}
+
+/* Theme & other styles */
+@theme {
+  --color-primary: oklch(0.4 0.1639 28.81);
+  --color-secondary: oklch(0.652 0.2353 19.59);
+  --color-accent: oklch(0.4079 0.1028 263.68);
+
+  --color-foreground: oklch(0.1706 0 0);
+  --color-surface: oklch(0.9128 0 0);
+
+  --color-muted-foreground: oklch(0.7412 0 0);
+
+  --color-destructive: oklch(0.5711 0.2289 21.48);
+
+  --font-poppins: "Poppins", sans-serif;
+}
+
+@layer base {
+  :root {
+    @apply text-foreground bg-white font-sans;
+  }
+
+  body {
+    @apply font-poppins relative;
+  }
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background: url("./assets/hero-mobile.webp") no-repeat;
+  background-position: bottom center;
+  background-size: 100% auto;
+}
+
+@media (width >= 40rem /* 640px */) {
+  body::before {
+    background: url("./assets/hero-desktop.webp") no-repeat;
+    background-position: center right;
+    background-size: contain;
+  }
+}

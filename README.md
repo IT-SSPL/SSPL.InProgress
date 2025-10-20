@@ -1,9 +1,57 @@
-# In-progress page for SSPŁ websites
+# 🛠️ SSPŁ — In-Progress Page
 
-Page that is to be a placeholder for pages that are currently under maintenance or not deployment-ready. It allows the user to enter and send their email to our Google Workspace database, so that we notify when the page they were looking for is ready.
+Strona tymczasowa używana jako **placeholder** dla witryn Samorządu Studenckiego PŁ, które są aktualnie w trakcie prac technicznych lub oczekują na wdrożenie.
 
-![](screenshot.png)
+Umożliwia użytkownikowi pozostawienie adresu e-mail, który zostanie zapisany w bazie Google Workspace (Apps Script). Po uruchomieniu docelowej strony wysyłane jest powiadomienie o dostępności serwisu.
 
-## License
+![](screenshot.jpg)
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+---
+
+## 🚀 Funkcje
+
+- 🔧 Prosty, lekki **frontend w React + Bun + TailwindCSS**
+- 📬 Formularz zapisu z walidacją (`zod`) i honeypotem anty-spam
+- 🔒 Minimalne przetwarzanie danych (RODO-friendly)
+- ⚡️ API proxy w Bun (bezpośrednie połączenie z Google Apps Script)
+- 🌐 Dynamiczne dane z `.env` (tytuł, opis, endpoint)
+
+---
+
+## 📦 Instalacja, konfiguracja i uruchomienie
+
+1. Instalacja zależności:
+
+```bash
+bun install
+```
+
+2. Konfiguracja środowiska:
+
+Utwórz plik `.env.local` na podstawie `.env.example` i uzupełnij zmienne środowiskowe.
+
+> ℹ️ Zmienne z prefiksem BUN_PUBLIC są dostępne w przeglądarce (frontend). Pozostałe są tylko po stronie serwera (backend).
+
+1. Uruchomienie aplikacji:
+
+- w trybie deweloperskim:
+
+```bash
+bun dev
+```
+
+- w trybie produkcyjnym:
+
+```bash
+bun start
+```
+
+## 🔐 Ochrona danych (RODO)
+
+🧾 Treść informacyjna do wyświetlenia pod formularzem:
+
+Podanie adresu e-mail jest dobrowolne. Dane wykorzystamy wyłącznie do poinformowania Cię o ponownym uruchomieniu strony. Administratorem danych jest Samorząd Studencki Politechniki Łódzkiej.
+
+---
+
+This project was created using `bun init` in bun v1.3.0. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
