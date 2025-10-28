@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+import Announcement from "@/components/announcement";
 import Newsletter from "@/components/newsletter";
 import NavBar from "@/components/navbar";
 import "./index.css";
@@ -18,7 +19,7 @@ export function App() {
       <NavBar />
 
       <main
-        className="grid w-full flex-1 items-center gap-10 lg:grid-cols-3 xl:grid-cols-2"
+        className="relative grid w-full flex-1 items-center gap-10 lg:grid-cols-3 xl:grid-cols-2"
         role="main"
       >
         <section
@@ -61,6 +62,8 @@ export function App() {
             Łódzkiej.
           </p>
         </section>
+
+        <Announcement />
       </main>
 
       <footer className="border-surface w-full pt-6 pb-2 lg:max-w-1/2 lg:border-t">
